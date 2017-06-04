@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Hello World!</title>
+	  <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+	  <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+	  <link rel="stylesheet" href="./assets/style.css" />
+   </head>
+   <body ng-app="app" ng-controller="appctrl">
+      <div class="container-fluid">
+	    <div class="col-sm-7">
+         <h3>Bangla Sobdo Sondhan</h3>
+		 <ul class="nav nav-tabs">
+			  <li class="active"><a data-toggle="tab" href="#lookup">Lookup</a></li>
+			  <li><a data-toggle="tab" href="#history" ng-click="loadHistory()">History</a></li>
+	     </ul>
+		 
+		 <div class="tab-content">
+		 <div class="tab-pane active" id="lookup">
+		      <div class="col-sm-6">
+			   <form ng-submit="search()">
+					<div class="input-group">
+					   <input type="text" ng-model="searchterm" class="form-control" placeholder="Search for...">
+					   <span class="input-group-btn">
+						<input class="btn btn-default" type="submit" value="Go!">
+					   </span>
+					</div>
+				</form>
+				<div class="col-sm-12 meaning">
+				    <h2 ng-class="{ 'nonefound':data.length==0 }"><i>{{word}}</i></h2>
+					<p ng-repeat="meaning in meanings" ng-hide="meaning==''">{{$index+1}}. {{meaning.trim()}}</p>
+				</div>
+			  </div> 
+		 </div>
+		 <div class="tab-pane" id="history">
+		      <div class="panel panel-default" ng-repeat="word in savedWords">
+				  <div class="panel-heading">
+					<h3 class="panel-title">{{word.Word}}</h3>
+				  </div>
+				  <div class="panel-body">
+					{{word.meaning}}
+				  </div>
+			   </div>
+			   <div class="panel panel-default" ng-show="nothingSaved">
+					<div class="panel-body">No Words Saved</div>
+			   </div>
+		 </div>
+		 </div>
+        </div>
+	  </div>
+	  
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+		<script src="./bower_components/angular/angular.min.js"></script>
+		<script src="./view.js" ></script>
+        <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script>if (window.module) module = window.module;</script>
+	  
+   </body>
+</html>

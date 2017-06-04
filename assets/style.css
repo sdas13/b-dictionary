@@ -1,0 +1,21 @@
+body{
+	font-family: 'Lora', serif;
+}
+
+.tab-content>.tab-pane {
+    margin-top: 2vmax;
+}
+
+.meaning i,#history .panel-title{
+	text-transform: capitalize;
+}
+
+.nonefound{
+	font-size: 15px;
+    font-weight: bolder;
+}
+
+.nonefound i{
+	font-style: normal;
+}
+
