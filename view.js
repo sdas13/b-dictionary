@@ -2,9 +2,9 @@ angular.module('app',[])
        .controller('appctrl',function($scope,$http){
 			
 			$scope.search=function(){
-				var url='http://192.168.1.5:3001/api/word/guru';
-				$http.get(url).then(function(response){
-				//$http.get('data/data.json').then(function(response){
+				//var url='http://192.168.1.5:3001/api/word/guru';
+				//$http.get(url).then(function(response){
+				$http.get('data/data.json').then(function(response){
 					console.log(response)
 					$scope.data=response.data.filter(function(elem){
 						return elem.Word.toLowerCase()==$scope.searchterm.toLowerCase()
